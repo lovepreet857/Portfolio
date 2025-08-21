@@ -37,21 +37,19 @@ const mainpage = () => {
           <h1 className="text-white-white text-[30px] md:text-[40px] lg:text-[55px] font-Inter">
             <span> Lovepreet Singh</span>
           </h1>
-          <h2 className="sm:text-4xl text-3xl font-bold  bg-gradient-to-r from-red-500 to-blue-500 bg-clip-text text-transparent">
-            {" "}
+          <h2 className="sm:text-4xl text-3xl font-bold  bg-gradient-to-r from-white-white to-green-pramery bg-clip-text text-transparent">
             I am <span>{text}</span>
             <Cursor
               cursorBlinking="false"
               cursorStyle="|"
-              cursorColor="#ff014f"
+              cursorColor="#7cf03d"
             />
-                       
           </h2>
-          <p className="text-white-white font-Inter text-xs md:text-base my-[10px] mr-[25px] line-clamp-3">
+          <i className="text-white-white font-Inter text-xs md:text-base my-[10px] mr-[25px] line-clamp-3">
             I am a passionate Full-Stack Developer skilled in building scalable
             and user-friendly web applications. On the frontend, I work with
             React,js,html,css, and Tailwind CSS 
-          </p>
+          </i>
 
           <div className=" flex flex-col lg:grid grid-cols-2 gap-5 items-center mt-10 sm:mt-5">
             <button className="text-center  rounded-[40px] text-black  btn  bg-green-pramery text-base font-Inter font-medium">
@@ -78,9 +76,9 @@ const mainpage = () => {
                   alt="twitter"
                 />
               </a>
-              <a
+             <a
                 className="p-2 border-solid border-2 border-green-pramery  rounded-[50%]"
-                href="https://in.linkedin.com/"
+                href="https://www.linkedin.com/feed/"
                 target="_blank"
               >
                 <img
@@ -103,8 +101,8 @@ const mainpage = () => {
           </div>
         </div>
         <img
-          className="border-5 border-amber-50 transition-all hover:shadow-2xl shadow-white-white rounded-full block w-[85%] object-cover top-[30px]"
-          src="public/img/hhh.jpg"
+          className="border-5 border-amber-50 transition-all hover:shadow-2xl shadow-white-white rounded-full block max-w-[85%] w-full object-cover top-[30px]"
+          src="public/img/lovely.jpg"
           alt=""
         />
       </div>
