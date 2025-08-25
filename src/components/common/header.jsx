@@ -71,7 +71,7 @@ const Header = () => {
                   >
                     {item.name}
                   </p>
-                </Link>
+                </Link>                
               ))}
             </div>
           </nav>
