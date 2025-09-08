@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Input from "../components/ui/input";
+import Input from "../components/ui/Input";
 import { motion } from "framer-motion";
 
 const Contact = () => {
@@ -57,10 +57,10 @@ const Contact = () => {
         >
           <div className="flex gap-3">
             {[
-              { href: "https://www.facebook.com/", src: "/svg/facebook.svg" },
-              { href: "https://twitter.com/", src: "/svg/twitter.svg" },
-              { href: "https://www.linkedin.com/feed/", src: "/svg/linkedin.svg" },
-              { href: "https://github.com/", src: "/svg/github.svg" },
+              { href: "https://www.facebook.com/", src: "svg/facebook.svg" },
+              { href: "https://twitter.com/", src: "svg/twitter.svg" },
+              { href: "https://www.linkedin.com/feed/", src: "svg/linkedin.svg" },
+              { href: "https://github.com/", src: "svg/github.svg" },
             ].map((social, i) => (
               <motion.a
                 key={i}

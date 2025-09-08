@@ -1,6 +1,8 @@
 import React, { useState, useLayoutEffect, useRef, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useTypewriter } from "react-simple-typewriter";
+import Aos from "aos";
 
 const Header = () => {
   const location = useLocation();
@@ -15,6 +17,20 @@ const Header = () => {
     { name: "Projects", path: "/projects" },
     { name: "Contact", path: "/contact" },
   ];
+   const [text] = useTypewriter({
+      words: ["LOVEPREET SINGH"],
+      loop: true,
+      typeSpeed: 70,
+      deleteSpeed: 60,
+      delaySpeed: 2000,
+    });
+  
+    useEffect(() => {
+      Aos.init({ duration: 1000, once: false, offset: 0 });
+      const handleScroll = () => Aos.refresh();
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
   return (
     <>
@@ -40,7 +56,7 @@ const Header = () => {
                 transition={{ duration: 0.9 }}
                 className="text-lg sm:text-[30px] pt-[4px] font-bold bg-gradient-to-r from-white to-green-500 bg-clip-text text-transparent"
               >
-                Lovepreet
+                {text}
               </motion.h1>
             </motion.div>
 

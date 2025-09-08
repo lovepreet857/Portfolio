@@ -72,7 +72,7 @@ const Aboute = () => {
         >
           {/* Left Section */}
           <motion.div
-            className="flex flex-col max-w-[500px] gap-10 lg:w-1/3 "
+            className="flex flex-col max-w-[500px] gap-5 md:gap-10 lg:w-1/3 "
             initial={{ x: -100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
@@ -112,7 +112,7 @@ const Aboute = () => {
                 Who I Am and What I Do
               </motion.p>
               <motion.p
-                className="text-white text-2xl leading-[120%] max-w-[880px] w-full"
+                className="text-white text-lg  sm:text-2xl leading-[120%] max-w-[880px] w-full"
                 initial={{ y: 20, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 viewport={{ once: true }}
@@ -130,54 +130,50 @@ const Aboute = () => {
             </div>
 
             {/* Tabs */}
-            <div className="w-full max-w-[500px] gap-5 sm:flex-row  flex-col flex  mt-5">
-              <button
-                onClick={() => setActiveTab("about")}
-                className={`  rounded-[30px] hover:bg-green-pramery  outline-none py-3 transition-all duration-700 shadow-[0_0_10px_#7cf03d] border-[#76e43a] w-full font-medium border-2 font-Inter ${
-                  activeTab === "about"
-                    ? "hidden"
-                    : "bg-transparent  text-green-pramery"
-                }`}
-              >
-                <img
-                  className=" w-8 sm:w-12 mx-auto"
-                  src="public/svg/arrow-left-solid.svg"
-                  alt=""
-                />
-              </button>
-              <a
-                href="img/lovepreet_Resume.pdf"
-                download="Lovepreet-CV.pdf"
-                className={`w-full ${
-                  activeTab === "about" ? "block" : "hidden"
-                }`}
-              >
-                <button
-                  onClick={() => setChange(!Change)}
-                  className={`text-lg sm:text-[24px] outline-none hover:bg-green-pramery hover:text-black shadow-[0_0_10px_#7cf03d] border-[#76e43a] rounded-[30px] py-3 transition-all duration-700 w-full font-medium border-2 font-Inter  
-      ${activeTab === "about" ? "block" : "hidden"}  
-      ${
-        Change
-          ? "bg-green-pramery text-black"
-          : "bg-transparent text-green-pramery"
-      }
-    `}
-                >
-                  Download CV
-                </button>
-              </a>
+        <div className="w-full max-w-[500px] gap-5 sm:flex-row flex-col flex md:mt-5">
+  <button
+    onClick={() => setActiveTab("about")}
+    className={`rounded-[30px] hover:bg-green-pramery outline-none py-3 transition-all duration-700 shadow-[0_0_10px_#7cf03d] border-[#76e43a] w-full font-medium border-2 font-Inter ${
+      activeTab === "about" ? "hidden" : "bg-transparent text-green-pramery"
+    }`}
+  >
+    <img
+      className="w-8 sm:w-12 mx-auto"
+      src="public/svg/arrow-left-solid.svg"
+      alt=""
+    />
+  </button>
 
-              <button
-                onClick={() => setActiveTab("skill")}
-                className={`text-black-secondery text-lg sm:text-[24px] outline-none shadow-[0_0_10px_#7cf03d] hover:bg-green-pramery hover:text-black  border-[#76e43a] rounded-[30px] py-3 transition-all duration-700 w-full font-medium border-2 font-Inter ${
-                  activeTab === "skill"
-                    ? "bg-green-pramery  text-black"
-                    : "bg-transparent  text-green-pramery"
-                }`}
-              >
-                Skill
-              </button>
-            </div>
+  <a
+    href="img/lovepreet_Resume.pdf"
+    download="Lovepreet-CV.pdf"
+    className={`w-full ${activeTab === "about" ? "block" : "hidden"}`}
+  >
+    <button
+      onClick={() => setChange(!Change)}
+      className={`text-lg sm:text-[24px] outline-none hover:bg-green-pramery hover:text-black shadow-[0_0_10px_#7cf03d] border-[#76e43a] rounded-[30px] py-3 transition-all duration-700 w-full font-medium border-2 font-Inter ${
+        activeTab === "about"
+          ? "block"
+          : "hidden"
+      } ${Change ? "bg-green-pramery text-black" : "bg-transparent text-green-pramery"}`}
+    >
+      Download CV
+    </button>
+  </a>
+
+  <button
+    onClick={() => {
+      setActiveTab("skill");
+      setChange(false); // <-- Reset CV button styles when Skill is clicked
+    }}
+    className={`text-black-secondery text-lg sm:text-[24px] outline-none shadow-[0_0_10px_#7cf03d] hover:bg-green-pramery hover:text-black border-[#76e43a] rounded-[30px] py-3 transition-all duration-700 w-full font-medium border-2 font-Inter ${
+      activeTab === "skill" ? "bg-green-pramery text-black" : "bg-transparent text-green-pramery"
+    }`}
+  >
+    Skill
+  </button>
+</div>
+
           </motion.div>
           {activeTab === "about" && (
             <>
