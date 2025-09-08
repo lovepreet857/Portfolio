@@ -85,64 +85,66 @@ const Contact = () => {
         variants={fadeInRight}
         transition={{ duration: 0.8 }}
       >
-        <motion.form
-          className=" hover:bg-transparent border-2 border-white-white hover:shadow-2xl shadow-white bg-opacity-60 py-10 md:py-[50px] px-5 md:px-10 rounded-[24px] flex flex-col gap-6 backdrop-blur-md"
-          initial="hidden"
-          animate="visible"
-          variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
-        >
-          <motion.div className="grid sm:grid-cols-2 gap-[32px]" variants={fadeInUp}>
-            <Input
-              name="firstName"
-              placeholder="First Name"
-              label="First Name"
-              value={formData.firstName}
-              onChange={handleChange}
-            />
-            <Input
-              name="lastName"
-              placeholder="Last Name"
-              label="Last Name"
-              value={formData.lastName}
-              onChange={handleChange}
-            />
-          </motion.div>
+      <motion.form
+  className="hover:bg-transparent border-2 border-white-white hover:shadow-2xl shadow-white bg-opacity-60 py-10 md:py-[50px] px-5 md:px-10 rounded-[24px] flex flex-col gap-6 backdrop-blur-md"
+  initial="hidden"
+  animate="visible"
+  variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+>
+  <motion.div className="grid sm:grid-cols-2 gap-[32px]" variants={fadeInUp}>
+    <Input
+      name="firstName"
+      placeholder="First Name"
+      label="First Name"
+      value={formData.firstName}
+      onChange={handleChange}
+    />
+    <Input
+      name="lastName"
+      placeholder="Last Name"
+      label="Last Name"
+      value={formData.lastName}
+      onChange={handleChange}
+    />
+  </motion.div>
 
-          <motion.div variants={fadeInUp}>
-            <Input
-              name="email"
-              placeholder="Enter your E-mail"
-              label="Email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </motion.div>
+  <motion.div variants={fadeInUp}>
+    <Input
+      name="email"
+      placeholder="Enter your E-mail"
+      label="Email"
+      type="email"
+      value={formData.email}
+      onChange={handleChange}
+    />
+  </motion.div>
 
-          <motion.div variants={fadeInUp}>
-            <label className="text-white-white font-Inter font-normal text-base md:text-[24px] leading-[100%] pb-3">
-              Message
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              placeholder="Write your message..."
-              rows={5}
-              className="w-full px-4 py-2 mt-3 rounded-lg bg-transparent border border-white-white text-white outline-none"
-            />
-          </motion.div>
+  <motion.div variants={fadeInUp}>
+    <label className="text-white-white font-Inter font-normal text-base md:text-[24px] leading-[100%] pb-3">
+      Message
+    </label>
+    <textarea
+      id="message"
+      name="message"
+      value={formData.message}
+      onChange={handleChange}
+      placeholder="Write your message..."
+      rows={5}
+      className="w-full px-4 py-2 mt-3 rounded-lg bg-transparent border border-white-white text-white outline-none"
+    />
+  </motion.div>
 
-          <motion.button
-            className="py-3 text-center w-full text-white-white bg-green-pramery font-Inter font-medium text-[16px] max-w-[208px] m-auto rounded-[24px] btn"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 120 }}
-            variants={fadeInUp}
-          >
-            Send message
-          </motion.button>
-        </motion.form>
+  <motion.button
+    type="submit"   // ← ye add karna zaruri hai
+    className="py-3 text-center w-full text-white-white bg-green-pramery font-Inter font-medium text-[16px] max-w-[208px] m-auto rounded-[24px] btn"
+    whileHover={{ scale: 1.05 }}
+    transition={{ type: "spring", stiffness: 120 }}
+    variants={fadeInUp}
+  >
+    Send message
+  </motion.button>
+</motion.form>
+
       </motion.div>
     </div>
   );
