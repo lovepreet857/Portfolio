@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import Skilldata from "../json/aboute.json";
-
+import Lovepreet from "../../public/img/hhh.jpg"
 // Skill Circle Component
 const SkillCircle = ({ icon, percentage, color }) => {
   const count = useMotionValue(0);
@@ -146,7 +146,7 @@ const Aboute = () => {
                 />
               </button>
               <a
-                href="public/img/lovepreet_Resume.pdf"
+                href="img/lovepreet_Resume.pdf"
                 download="Lovepreet-CV.pdf"
                 className={`w-full ${
                   activeTab === "about" ? "block" : "hidden"
@@ -193,7 +193,7 @@ const Aboute = () => {
                     duration: 1,
                   }}
                   className=" hidden lg:block  border-4 border-amber-50 transition-all hover:shadow-2xl shadow-white rounded-[24px] object-cover"
-                  src="/img/hhh.jpg"
+                  src={Lovepreet}
                   alt="Profile"
                 />
                 {/* <div className="max-w-[200px] h-50 rounded-full overflow-hidden mx-auto">
