@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import Skilldata from "../json/aboute.json";
 import Lovepreet from "../../public/img/hhh.jpg"
+import left from "../../public/svg/arrow-left-solid.svg"
 // Skill Circle Component
 const SkillCircle = ({ icon, percentage, color }) => {
   const count = useMotionValue(0);
@@ -139,7 +140,7 @@ const Aboute = () => {
   >
     <img
       className="w-8 sm:w-12 mx-auto"
-      src="svg/arrow-left-solid.svg"
+      src={left}
       alt=""
     />
   </button>
