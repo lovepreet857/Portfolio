@@ -139,7 +139,7 @@ const Aboute = () => {
   >
     <img
       className="w-8 sm:w-12 mx-auto"
-      src="public/svg/arrow-left-solid.svg"
+      src="svg/arrow-left-solid.svg"
       alt=""
     />
   </button>
