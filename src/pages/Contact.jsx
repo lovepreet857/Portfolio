@@ -156,7 +156,7 @@ const Contact = () => {
             transition={{ type: "spring", stiffness: 120 }}
             variants={fadeInUp}
           >
-            Send message
+            Send message your
           </motion.button>
         </motion.form>
       </motion.div>
