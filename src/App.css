@@ -1,29 +1,38 @@
-@import "tailwindcss";
+  @import "tailwindcss";
 
-@theme {
-  --font-Inter: "Inter", sans-serif;
-  --color-white-white: #ffffff;
-  --color-black-secondery: #1f242d;
+  @theme {
+    --font-Inter: "Inter", sans-serif;
+    --color-white-white: #ffffff;
+    --color-black-secondery: #1f242d;
 
-  --color-green-pramery: #7cf03d;
-}
-@layer utilities {
-  @layer base {
-    * {
-      @apply m-0 p-0 box-border;
+    --color-green-pramery: #7cf03d;
+  }
+  @layer utilities {
+    @layer base {
+      * {
+        @apply m-0 p-0 box-border;
+      }
+    }
+    .container {
+      @apply max-w-[1360px] w-full px-5 m-auto;
+    }
+    body {
+      @apply bg-black-secondery ;
+    }
+    .btn {
+      @apply py-[10px] w-[170px] transition-all duration-500  bg-transparent text-[#7cf03d] border shadow-[0_0_10px_#7cf03d] border-[#7cf03d]   ;
+    }
+    
+    .btn1 {
+      @apply  hover:shadow-[0_0_10px_#7cf03d] shadow-2xl ;
+    }
+     .btn1:hover {
+      @apply  bg-transparent text-[#7cf03d] border border-[#7cf03d] shadow-none;
+    }
+
+    .btn:hover {
+      @apply    text-black bg-green-pramery ;
     }
   }
-  .container {
-    @apply max-w-[1360px] w-full px-5 m-auto;
-  }
-  body {
-    @apply bg-black-secondery;
-  }
-  .btn {
-    @apply py-[10px] w-[170px] transition duration-500 shadow-[0_0_10px_#7cf03d] border border-[#7cf03d];
-  }
 
-  .btn:hover {
-    @apply py-[10px] w-[170px] bg-transparent text-[#7cf03d] border border-[#7cf03d] shadow-none;
-  }
-}
+

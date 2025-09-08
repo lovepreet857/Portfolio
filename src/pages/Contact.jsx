@@ -1,94 +1,97 @@
-import React, { useState } from 'react'
-import Input from '../components/ui/input'
+import React, { useState } from "react";
+import Input from "../components/ui/input";
+import { motion } from "framer-motion";
 
 const Contact = () => {
-   const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
     agree: false,
-    message:""
+    message: "",
   });
-    const handleChange = (e) => {
+
+  const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
   };
+
+  const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
+  const fadeInLeft = { hidden: { opacity: 0, x: -50 }, visible: { opacity: 1, x: 0 } };
+  const fadeInRight = { hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0 } };
+
   return (
-  <>
-  <div className='container py-5 md:mp-10 lg:py-[60px] md:h-screen grid lg:grid-cols-2'>
-    <div>
+    <div className="container py-5 md:py-10 lg:py-[60px] md:h-screen grid lg:grid-cols-2 gap-10">
+      {/* Left Section */}
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={fadeInLeft}
+        transition={{ duration: 0.8 }}
+      >
+        <motion.h1
+          variants={fadeInUp}
+          transition={{ delay: 0.1, duration: 0.6 }}
+          className="text-[24px] md:text-[48px] font-bold font-Inter leading-[100%] pb-5 text-white-white"
+        >
+          Let’s Work <span className="text-green-pramery">Together!</span>
+        </motion.h1>
+        <motion.p
+          variants={fadeInUp}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="text-white-white text-lg md:text-[24px] font-Inter font-normal"
+        >
+          I’m always open to discussing new projects, creative ideas, or
+          opportunities to be part of your vision.
+        </motion.p>
 
-      <div className=' mb-10 md:mb-[70px] lg:mb-[137px] max-w-[528px] w-full'>
-        <h1 className='text-[24px] md:text-[48px] font-bold font-Inter leading-[100%] pb-5 text-white-white'>Let’s Work <span className='text-green-pramery'>Together!</span></h1>
-        <p className='text-white-white text-lg md:text-[24px] font-Inter font-normal'>I’m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
-      </div>
-      <div className='hidden lg:block'>
-
-       <div className="flex gap-3 pb-[32px]">
-              <a
-                className="p-2 border-solid border-2 border-green-pramery rounded-[50%]"
-                href="https://www.facebook.com/"
-              >
-                <img
-                  className="max-w-6"
-                  src="public/svg/facebook.svg"
-                  alt="facboock"
-                />
-              </a>
-              <a
-                className="p-2 border-solid border-2 border-green-pramery rounded-[50%]"
-                href="https://twitter.com/"
-              >
-                <img
-                  className="max-w-6"
-                  src="public/svg/twitter.svg"
-                  alt="twitter"
-                />
-              </a>
-              <a
-                className="p-2 border-solid border-2 border-green-pramery  rounded-[50%]"
-                href="https://www.linkedin.com/feed/"
+        {/* Social Icons */}
+        <motion.div
+          variants={fadeInUp}
+          transition={{ delay: 0.5, staggerChildren: 0.15 }}
+          className="hidden lg:block mt-10"
+        >
+          <div className="flex gap-3">
+            {[
+              { href: "https://www.facebook.com/", src: "/svg/facebook.svg" },
+              { href: "https://twitter.com/", src: "/svg/twitter.svg" },
+              { href: "https://www.linkedin.com/feed/", src: "/svg/linkedin.svg" },
+              { href: "https://github.com/", src: "/svg/github.svg" },
+            ].map((social, i) => (
+              <motion.a
+                key={i}
+                href={social.href}
                 target="_blank"
+                variants={{ hidden: { y: -20, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
+                whileHover={{ scale: 1.2, rotate: 10 }}
+                transition={{ delay: 0.2, type: "spring", stiffness: 120 }}
+                className="p-2 border-2 border-green-500 rounded-full"
               >
-                <img
-                  className="max-w-6"
-                  src="public/svg/linkedin.svg"
-                  alt="linkedin"
-                />
-              </a>
-              <a
-                className="p-2 border-solid border-2 border-green-pramery rounded-[50%] "
-                href="https://github.com/"
-              >
-                <img
-                  className="max-w-6"
-                  src="public/svg/github.svg"
-                  alt="github"
-                />
-              </a>
-            </div>
-            <div className='flex flex-col gap-[14px]'>
-              <span className='flex items-center gap-[10px]'>
-                <img src="public/svg/email.svg" alt="" />
-                 <p className='text-white-white font-Inter text-lg leading-[130%] font-normal'>Email: <a className='text-green-pramery' href="">singhlovepreet8575@gmail.com</a></p>
-              </span>
-              <span className='flex items-center gap-[10px]'>
-                <img src="public/svg/phone.svg" alt="" />
-                 <p className='text-white-white font-Inter text-lg leading-[130%] font-normal'>Phone: <a className='text-green-pramery' href="">+91 77175 62499</a></p>
-              </span><span className='flex items-center gap-[10px]'>
-                <img src="public/svg/location.svg" alt="" />
-                 <p className='text-white-white font-Inter text-lg leading-[130%] font-normal'>Address: <a className='text-green-pramery' href="">Abohar Punjab</a></p>
-              </span>
-            </div>
-      </div>
-    </div>
-    <div>
-       <form className=' bg-gray-600 py-10 md:py-[50px] px-5 md:px-10 rounded-[24px] flex flex-col gap-6'>
-          <div className="grid sm:grid-cols-2 gap-[32px] max-w-full">
+                <img className="max-w-6" src={social.src} alt="social-icon" />
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* Right Form Section */}
+      <motion.div
+        initial="hidden"
+        animate="visible"
+        variants={fadeInRight}
+        transition={{ duration: 0.8 }}
+      >
+        <motion.form
+          className=" hover:bg-transparent border-2 border-white-white hover:shadow-2xl shadow-white bg-opacity-60 py-10 md:py-[50px] px-5 md:px-10 rounded-[24px] flex flex-col gap-6 backdrop-blur-md"
+          initial="hidden"
+          animate="visible"
+          variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+        >
+          <motion.div className="grid sm:grid-cols-2 gap-[32px]" variants={fadeInUp}>
             <Input
               name="firstName"
               placeholder="First Name"
@@ -103,94 +106,46 @@ const Contact = () => {
               value={formData.lastName}
               onChange={handleChange}
             />
-          </div> 
-          <div>
-             <Input
-            name="email"
-            placeholder="Enter your E-mail"
-            label="Email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
-          </div>
-            <div>
-              <label className='text-white-white font-Inter font-normal text-base md:text-[24px] leading-[100%] pb-3'>Message Textarea</label>
-           <textarea
-    id="message"
-    name="message"
-    value={formData.message}
-    onChange={handleChange}
-    placeholder="Write your message..."
-    rows={5}
-    className="w-full px-4 py-2 mt-3 rounded-lg bg-transparent border border-white-white text-white outline-none "
-  />
-          </div>
-          <button className='py-3 text-center w-full text-white-white bg-green-pramery font-Inter font-medium text-[16px]   max-w-[208px] m-auto rounded-[24px] btn'>View Projects</button>
-       </form>
+          </motion.div>
+
+          <motion.div variants={fadeInUp}>
+            <Input
+              name="email"
+              placeholder="Enter your E-mail"
+              label="Email"
+              type="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
+          </motion.div>
+
+          <motion.div variants={fadeInUp}>
+            <label className="text-white-white font-Inter font-normal text-base md:text-[24px] leading-[100%] pb-3">
+              Message
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Write your message..."
+              rows={5}
+              className="w-full px-4 py-2 mt-3 rounded-lg bg-transparent border border-white-white text-white outline-none"
+            />
+          </motion.div>
+
+          <motion.button
+            className="py-3 text-center w-full text-white-white bg-green-pramery font-Inter font-medium text-[16px] max-w-[208px] m-auto rounded-[24px] btn"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 120 }}
+            variants={fadeInUp}
+          >
+            Send message
+          </motion.button>
+        </motion.form>
+      </motion.div>
     </div>
-    <div className='lg:hidden mt-[60px]'>
+  );
+};
 
-       <div className="flex gap-3 pb-[32px]">
-              <a
-                className="p-2 border-solid border-2 border-green-pramery rounded-[50%]"
-                href="https://www.facebook.com/"
-              >
-                <img
-                  className="max-w-6"
-                  src="public/svg/facebook.svg"
-                  alt="facboock"
-                />
-              </a>
-              <a
-                className="p-2 border-solid border-2 border-green-pramery rounded-[50%]"
-                href="https://twitter.com/"
-              >
-                <img
-                  className="max-w-6"
-                  src="public/svg/twitter.svg"
-                  alt="twitter"
-                />
-              </a>
-              <a
-                className="p-2 border-solid border-2 border-green-pramery  rounded-[50%]"
-                href="https://www.linkedin.com/feed/"
-                target="_blank"
-              >
-                <img
-                  className="max-w-6"
-                  src="public/svg/linkedin.svg"
-                  alt="linkedin"
-                />
-              </a>
-              <a
-                className="p-2 border-solid border-2 border-green-pramery rounded-[50%] "
-                href="https://github.com/"
-              >
-                <img
-                  className="max-w-6"
-                  src="public/svg/github.svg"
-                  alt="github"
-                />
-              </a>
-            </div>
-            <div className='flex flex-col gap-[14px]'>
-              <span className='flex items-center gap-[10px]'>
-                <img src="public/svg/email.svg" alt="" />
-                 <p className='text-white-white font-Inter text-lg leading-[130%] font-normal'>Email: <a className='text-green-pramery' href="">singhlovepreet8575@gmail.com</a></p>
-              </span>
-              <span className='flex items-center gap-[10px]'>
-                <img src="public/svg/phone.svg" alt="" />
-                 <p className='text-white-white font-Inter text-lg leading-[130%] font-normal'>Phone: <a className='text-green-pramery' href="">+91 77175 62499</a></p>
-              </span><span className='flex items-center gap-[10px]'>
-                <img src="public/svg/location.svg" alt="" />
-                 <p className='text-white-white font-Inter text-lg leading-[130%] font-normal'>Address: <a className='text-green-pramery' href="">Abohar Punjab</a></p>
-              </span>
-            </div>
-      </div>
-  </div>
-  </>
-  )
-}
-
-export default Contact
+export default Contact;

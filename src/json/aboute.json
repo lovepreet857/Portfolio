@@ -1,0 +1,56 @@
+[
+    {
+        "titel": "Html",
+        "img": "svg/html-5.svg",
+        "percentage": 95,
+        "color": "#ffffff"
+    },
+    {
+        "titel": "Css",
+        "img": "svg/css3.svg",
+        "percentage": 90,
+        "color": "#ffffff"
+    },
+    {
+        "titel": "Js",
+        "img": "svg/javascript.svg",
+        "percentage": 75,
+        "color": "#ffffff"
+    },
+    {
+        "titel": "React",
+        "img": "public/svg/react.svg",
+        "percentage": 70,
+        "color": "#ffffff"
+    },
+    {
+        "titel": "Taiwind",
+        "img": "svg/tailwind-css.svg",
+        "percentage": 90,
+        "color": "#ffffff"
+    },
+     {
+        "titel": "Git",
+        "img": "svg/git.svg",
+        "percentage": 70,
+        "color": "#ffffff"
+    },
+     {
+        "titel": "Myslq",
+        "img": "svg/mysql-logo.svg",
+        "percentage": 70,
+        "color": "#ffffff"
+    },
+       {
+        "titel": "Express",
+        "img": "svg/express-js.svg",
+        "percentage": 70,
+        "color": "#ffffff"
+    },
+     {
+        "titel": "Node.js",
+        "img": "svg/node-js.svg",
+        "percentage": 70,
+        "color": "#ffffff"
+    }
+]
