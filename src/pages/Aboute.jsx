@@ -25,7 +25,7 @@ const SkillCircle = ({ icon, percentage, color }) => {
 
   return (
     <motion.div
-      className="relative flex flex-col items-center justify-center"
+      className="relative flex flex-col items-center justify-center overflow-hidden"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -60,10 +60,10 @@ const Aboute = () => {
   const [Change, setChange] = useState(false);
 
   return (
-    <div className="my-8">
+    <div className="md:my-8">
       <div className="container">
         <motion.div
-          className="flex flex-col lg:flex-row gap-[25px] md:gap-[50px]  w-full items-center md:justify-center"
+          className="flex flex-col lg:flex-row  md:gap-[50px]  w-full items-center md:justify-center"
           initial="hidden"
           animate="visible"
           variants={{
@@ -178,7 +178,7 @@ const Aboute = () => {
           </motion.div>
           {activeTab === "about" && (
             <>
-              <div className="max-w-[500px] w-full h-[500px]  flex flex-col ">
+              <div className="max-w-[500px] w-full   flex flex-col ">
                 <motion.img
                   initial={{ opacity: 0, y: 50, rotate: -5 }}
                   animate={{ opacity: 1, y: 0, rotate: 0 }}
