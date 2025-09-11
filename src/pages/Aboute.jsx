@@ -178,7 +178,7 @@ const Aboute = () => {
           </motion.div>
           {activeTab === "about" && (
             <>
-              <div className="max-w-[500px] w-full   flex flex-col ">
+              <div className="max-w-[500px] w-full h-[500px]  flex flex-col ">
                 <motion.img
                   initial={{ opacity: 0, y: 50, rotate: -5 }}
                   animate={{ opacity: 1, y: 0, rotate: 0 }}
