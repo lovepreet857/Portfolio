@@ -83,7 +83,7 @@ const Projects = () => {
       </div>
 
       {/* Swiper */}
-      <div className="lg:hidden mb-20">
+      <div className="lg:hidden">
         <Swiper
           spaceBetween={32}
   modules={[Autoplay]}
