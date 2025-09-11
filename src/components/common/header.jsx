@@ -56,7 +56,7 @@ const Header = () => {
                 transition={{ duration: 0.9 }}
                 className="text-lg sm:text-[30px] pt-[4px] font-bold bg-gradient-to-r from-white to-green-500 bg-clip-text text-transparent"
               >
-                {text}
+                <i>{text}</i>
               </motion.h1>
             </motion.div>
 

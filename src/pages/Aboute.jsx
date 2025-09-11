@@ -146,7 +146,7 @@ const Aboute = () => {
   </button>
 
   <a
-    href="img/lovepreet_Resume.pdf"
+    href="img/lovely_cv.pdf"
     download="Lovepreet-CV.pdf"
     className={`w-full ${activeTab === "about" ? "block" : "hidden"}`}
   >
