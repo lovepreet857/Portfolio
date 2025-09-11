@@ -38,7 +38,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="container py-5 md:py-10 lg:py-[60px] md:h-screen grid lg:grid-cols-2 gap-10">
+    <div className="container py-3 sm:pt-10 items-center grid lg:grid-cols-2 gap-10">
       {/* Left Section */}
       <motion.div
         initial="hidden"
