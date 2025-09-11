@@ -25,7 +25,7 @@ const SkillCircle = ({ icon, percentage, color }) => {
 
   return (
     <motion.div
-      className="relative flex flex-col items-center justify-center overflow-hidden"
+      className="relative flex flex-col items-center justify-center "
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -176,9 +176,11 @@ const Aboute = () => {
 </div>
 
           </motion.div>
+          <div className="max-w-[500px] w-full">
+
           {activeTab === "about" && (
             <>
-              <div className="max-w-[500px] w-full   flex flex-col ">
+              <div className="   flex flex-col ">
                 <motion.img
                   initial={{ opacity: 0, y: 50, rotate: -5 }}
                   animate={{ opacity: 1, y: 0, rotate: 0 }}
@@ -215,14 +217,14 @@ const Aboute = () => {
 
           {/* Right Section */}
           <motion.div
-            className="flex flex-col gap-[50px]"
+            className="flex flex-col gap-[50px] "
             initial={{ x: 100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
             {activeTab === "skill" && (
-              <div className="grid sm:grid-cols-2 w-[500px] md:grid-cols-3 gap-3 sm:gap-5 md:gap-10">
+              <div className="grid sm:grid-cols-2  md:grid-cols-3 gap-3 sm:gap-5 md:gap-10 my-10 lg:my-0 ">
                 {Skilldata.map((item, index) => (
                   <div key={index}>
                     <SkillCircle
@@ -244,6 +246,7 @@ const Aboute = () => {
               </div>
             )}
           </motion.div>
+          </div>
         </motion.div>
       </div>
     </div>
