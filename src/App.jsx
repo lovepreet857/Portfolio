@@ -5,11 +5,12 @@ import Home from './pages/Home';
 import Aboute from './pages/Aboute';
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
+import GridMotion from './pages/Animation';
 
 function App() {
 
-
   return (
+    
     <BrowserRouter>
       <Header />
       <Routes>

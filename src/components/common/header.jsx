@@ -44,17 +44,12 @@ const Header = () => {
               transition={{ duration: 0.6 }}
               className="flex items-center gap-3"
             >
-              <motion.img
-                whileHover={{ rotate: 360, scale: 1.1 }}
-                transition={{ duration: 0.9 }}
-                className="border-2 border-white rounded-full max-w-[40px] sm:max-w-[50px]"
-                src="/svg/ls.svg"
-                alt="Logo"
-              />
+      
+            
               <motion.h1
                 whileHover={{ scale: 1.1, textShadow: "0px 0px 8px #22c55e" }}
                 transition={{ duration: 0.9 }}
-                className="text-lg sm:text-[30px] pt-[4px] font-bold bg-gradient-to-r from-white to-green-500 bg-clip-text text-transparent"
+                className=" text-lg sm:text-[22px] h-[40px] md:text-[30px] pt-[4px] font-bold bg-gradient-to-r from-white to-green-500 bg-clip-text text-transparent"
               >
                 <i>{text}</i>
               </motion.h1>
@@ -82,9 +77,7 @@ const Header = () => {
               ></span>
             </button>
 
-            {/* Mobile Menu */}
-            {/* Mobile Menu */}
-            {/* Mobile Menu */}
+          
             <motion.div
               initial={{ x: "100%", opacity: 0 }}
               animate={{

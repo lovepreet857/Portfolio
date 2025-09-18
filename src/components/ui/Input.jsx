@@ -35,7 +35,7 @@ const Input = ({
           onChange={onChange}
           placeholder={placeholder}
           required={required}
-          className={`border border-white-white text-white-white  px-3 py-2 rounded-xl  outline-none ${className}`}
+          className={`border border-green-pramery placeholder-white text-white-white  px-3 py-3 rounded-xl  outline-none ${className}`}
           {...rest}
         />
       </div>

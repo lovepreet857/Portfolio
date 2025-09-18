@@ -3,12 +3,19 @@ import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import Skilldata from "../json/aboute.json";
 import Lovepreet from "../../public/img/hhh.jpg"
 import left from "../../public/svg/arrow-left-solid.svg"
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 // Skill Circle Component
+AOS.init({
+        duration: 1200,
+        once: false,
+        offset: 0,
+      });
 const SkillCircle = ({ icon, percentage, color }) => {
   const count = useMotionValue(0);
   const rounded = useTransform(count, (latest) => Math.round(latest));
   const [displayValue, setDisplayValue] = useState(0);
-
   useEffect(() => {
     const unsubscribe = rounded.on("change", (latest) =>
       setDisplayValue(latest)
@@ -24,13 +31,9 @@ const SkillCircle = ({ icon, percentage, color }) => {
   }, [count, rounded, percentage]);
 
   return (
-    <motion.div
-      className="relative flex flex-col items-center justify-center "
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      whileHover={{ scale: 1.1 }}
+    <div 
+    
+      className="relative flex  flex-col items-center justify-center "
     >
       <svg className="absolute w-[120px] h-[120px] -z-0">
         <motion.circle
@@ -49,9 +52,9 @@ const SkillCircle = ({ icon, percentage, color }) => {
       </svg>
       <div className="flex flex-col items-center gap-2 py-5 px-7 text-white relative">
         <img className="max-w-[50px]" src={icon} alt="skill" />
-        <span className="text-lg font-semibold">{displayValue}%</span>
+        {/* <span className="text-lg font-semibold">{displayValue}%</span> */}
       </div>
-    </motion.div>
+    </div>
   );
 };
 
@@ -60,64 +63,34 @@ const Aboute = () => {
   const [Change, setChange] = useState(false);
 
   return (
-    <div className="md:my-8">
-      <div className="container">
-        <motion.div
-          className="flex flex-col lg:flex-row  md:gap-[50px]  w-full items-center md:justify-center"
-          initial="hidden"
-          animate="visible"
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
-          }}
+    <div className="md:my-14">
+      <div className="container ">
+        <div
+          className="flex flex-col lg:flex-row  justify-between  w-full items-center "
+          
         >
           {/* Left Section */}
-          <motion.div
+          <div
             className="flex flex-col max-w-[500px] gap-5 md:gap-10 lg:w-1/3 "
-            initial={{ x: -100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: "easeOut" }}
           >
-            <motion.img
-              initial={{ opacity: 0, y: 50, rotate: -5 }}
-              animate={{ opacity: 1, y: 0, rotate: 0 }}
-              whileHover={{ scale: 1.05, rotate: 3 }}
-              transition={{
-                type: "spring",
-                stiffness: 80,
-                damping: 12,
-                duration: 1,
-              }}
+            <img data-aos="fade-right" data-aos-delay="200"
               className=" lg:hidden border-4 border-amber-50 transition-all hover:shadow-2xl shadow-white rounded-[24px] object-cover"
               src="/img/hhh.jpg"
               alt="Profile"
             />
             <div className="flex flex-col gap-3 sm:gap-4 md:gap-5">
-              <motion.h1
+              <h1 data-aos="fade-right" data-aos-delay="200"
                 className=" text-[24px] sm:text-[30px] md:text-5xl font-bold text-white"
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
               >
                 About Me...
-              </motion.h1>
-              <motion.p
+              </h1>
+              <p data-aos="fade-right" data-aos-delay="400"
                 className="text-white text-sm sm:text-base md:text-lg md:text-[32px] font-normal"
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
               >
                 Who I Am and What I Do
-              </motion.p>
-              <motion.p
+              </p>
+              <p data-aos="fade-right" data-aos-delay="600"
                 className="text-white text-lg  sm:text-2xl leading-[120%] max-w-[880px] w-full"
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 2 }}
               >
                 "I am <span className="text-green-pramery">Lovepreet</span>a
                 passionate <span className="text-green-pramery">Fullstack</span>{" "}
@@ -127,7 +100,7 @@ const Aboute = () => {
                 <span className="text-green-pramery">responsive</span> and
                 efficient web applications that provide seamless user
                 experiences."
-              </motion.p>
+              </p>
             </div>
 
             {/* Tabs */}
@@ -150,7 +123,7 @@ const Aboute = () => {
     download="Lovepreet-CV.pdf"
     className={`w-full ${activeTab === "about" ? "block" : "hidden"}`}
   >
-    <button
+    <button data-aos="fade-up" data-aos-delay="800"
       onClick={() => setChange(!Change)}
       className={`text-lg sm:text-[24px] outline-none hover:bg-green-pramery hover:text-black shadow-[0_0_10px_#7cf03d] border-[#76e43a] rounded-[30px] py-3 transition-all duration-700 w-full font-medium border-2 font-Inter ${
         activeTab === "about"
@@ -162,7 +135,7 @@ const Aboute = () => {
     </button>
   </a>
 
-  <button
+  <button data-aos="fade-up" data-aos-delay="1000"
     onClick={() => {
       setActiveTab("skill");
       setChange(false); // <-- Reset CV button styles when Skill is clicked
@@ -175,23 +148,14 @@ const Aboute = () => {
   </button>
 </div>
 
-          </motion.div>
+          </div>
           <div className="max-w-[500px] w-full">
 
           {activeTab === "about" && (
             <>
               <div className="   flex flex-col ">
-                <motion.img
-                  initial={{ opacity: 0, y: 50, rotate: -5 }}
-                  animate={{ opacity: 1, y: 0, rotate: 0 }}
-                  whileHover={{ scale: 1.05, rotate: 3 }}
-                  transition={{
-                    type: "spring",
-                    stiffness: 80,
-                    damping: 12,
-                    duration: 1,
-                  }}
-                  className=" hidden lg:block  border-4 border-amber-50 transition-all hover:shadow-2xl shadow-white rounded-[24px] object-cover"
+                <img data-aos="fade-left" data-aos-delay="200"
+                  className=" hidden  lg:block  border-4 border-amber-50 transition-all hover:shadow-2xl shadow-white rounded-[24px] object-cover"
                   src={Lovepreet}
                   alt="Profile"
                 />
@@ -216,38 +180,33 @@ const Aboute = () => {
           )}
 
           {/* Right Section */}
-          <motion.div
+          <div
             className="flex flex-col gap-[50px] "
-            initial={{ x: 100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: "easeOut" }}
           >
             {activeTab === "skill" && (
-              <div className="grid sm:grid-cols-2  md:grid-cols-3 gap-3 sm:gap-5 md:gap-10 my-10 lg:my-0 ">
+              <div className="grid sm:grid-cols-2 h-full w-full pt-12  md:grid-cols-3 gap-3 sm:gap-5 md:gap-10 my-10 lg:my-0 ">
                 {Skilldata.map((item, index) => (
-                  <div key={index}>
+                  <div
+                  data-aos={index % 3 === 0 ? "fade-up" : index % 3 === 1 ? "fade-up" : "fade-down"}
+                    data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
+                   key={index}>
                     <SkillCircle
                       icon={item.img}
                       percentage={item.percentage}
                       color={item.color}
                     />
-                    <motion.p
+                    <p
                       className="text-center text-[24px] text-white font-Inter font-medium leading-[100%] mt-5"
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.5 }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
                     >
                       {item.titel}
-                    </motion.p>
+                    </p>
                   </div>
                 ))}
               </div>
             )}
-          </motion.div>
           </div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </div>
   );

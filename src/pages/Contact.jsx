@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Input from "../components/ui/Input";
-import { motion } from "framer-motion";
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const Contact = () => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -11,7 +11,11 @@ const Contact = () => {
     agree: false,
     message: "",
   });
-
+AOS.init({
+        duration: 1200,
+        once: false,
+        offset: 0,
+      });
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
@@ -20,9 +24,7 @@ const Contact = () => {
     }));
   };
 
-  const fadeInUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } };
-  const fadeInLeft = { hidden: { opacity: 0, x: -50 }, visible: { opacity: 1, x: 0 } };
-  const fadeInRight = { hidden: { opacity: 0, x: 50 }, visible: { opacity: 1, x: 0 } };
+
 
   const handleSubmit = (e) => {
     e.preventDefault(); // page reload nahi hoga
@@ -38,34 +40,25 @@ const Contact = () => {
   };
 
   return (
-    <div className="container py-3 sm:pt-10 items-center grid lg:grid-cols-2 gap-10">
+    <div className="container  py-[100px]     grid lg:grid-cols-2 gap-10">
       {/* Left Section */}
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={fadeInLeft}
-        transition={{ duration: 0.8 }}
+      <div
+        className="w-[500px]"
       >
-        <motion.h1
-          variants={fadeInUp}
-          transition={{ delay: 0.1, duration: 0.6 }}
-          className="text-[24px] md:text-[48px] font-bold font-Inter leading-[100%] pb-5 text-white-white"
+        <h1 data-aos="fade-right" data-aos-delay="200"
+          className="text-[24px] md:text-[48px] w- font-bold font-Inter leading-[100%] pb-5 text-white-white"
         >
           Let’s Work <span className="text-green-pramery">Together!</span>
-        </motion.h1>
-        <motion.p
-          variants={fadeInUp}
-          transition={{ delay: 0.3, duration: 0.6 }}
+        </h1>
+        <p data-aos="fade-right" data-aos-delay="400"
           className="text-white-white text-lg md:text-[24px] font-Inter font-normal"
         >
           I’m always open to discussing new projects, creative ideas, or
           opportunities to be part of your vision.
-        </motion.p>
+        </p>
 
         {/* Social Icons */}
-        <motion.div
-          variants={fadeInUp}
-          transition={{ delay: 0.5, staggerChildren: 0.15 }}
+        <div
           className="hidden lg:block mt-10"
         >
           <div className="flex gap-3">
@@ -75,91 +68,76 @@ const Contact = () => {
               { href: "https://www.linkedin.com/feed/", src: "svg/linkedin.svg" },
               { href: "https://github.com/", src: "svg/github.svg" },
             ].map((social, i) => (
-              <motion.a
+              <a data-aos="fade-up" data-aos-delay={i*100+400}
                 key={i}
                 href={social.href}
                 target="_blank"
-                rel="noopener noreferrer"
-                variants={{ hidden: { y: -20, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
-                whileHover={{ scale: 1.2, rotate: 10 }}
-                transition={{ delay: 0.2, type: "spring", stiffness: 120 }}
                 className="p-2 border-2 border-green-500 rounded-full"
               >
                 <img className="max-w-6" src={social.src} alt="social-icon" />
-              </motion.a>
+              </a>
             ))}
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
       {/* Right Form Section */}
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={fadeInRight}
-        transition={{ duration: 0.8 }}
-      >
-        <motion.form
+      <div      >
+        <form
           onSubmit={handleSubmit}
-          className="hover:bg-transparent border-2 border-white-white hover:shadow-2xl shadow-white bg-opacity-60 py-10 md:py-[50px] px-5 md:px-10 rounded-[24px] flex flex-col gap-6 backdrop-blur-md"
-          initial="hidden"
-          animate="visible"
-          variants={{ visible: { transition: { staggerChildren: 0.15 } } }}
+          className=" bg-opacity-60   rounded-[24px] flex flex-col gap-6 backdrop-blur-md"
         >
-          <motion.div className="grid sm:grid-cols-2 gap-[32px]" variants={fadeInUp}>
-            <Input
+          <div className="grid sm:grid-cols-2 gap-[32px]" >
+            <Input data-aos="fade-down" data-aos-delay={1000}
               name="firstName"
               placeholder="First Name"
-              label="First Name"
               value={formData.firstName}
               onChange={handleChange}
             />
-            <Input
+            <Input data-aos="fade-down" data-aos-delay={800}
               name="lastName"
               placeholder="Last Name"
-              label="Last Name"
               value={formData.lastName}
               onChange={handleChange}
             />
-          </motion.div>
+          </div>
 
-          <motion.div variants={fadeInUp}>
-            <Input
+          <div >
+            <Input data-aos="fade-down" data-aos-delay={600}
               name="email"
               placeholder="Enter your E-mail"
-              label="Email"
               type="email"
               value={formData.email}
               onChange={handleChange}
             />
-          </motion.div>
+          </div>
 
-          <motion.div variants={fadeInUp}>
-            <label className="text-white-white font-Inter font-normal text-base md:text-[24px] leading-[100%] pb-3">
-              Message
-            </label>
-            <textarea
+          <div 
+          
+          
+          >
+
+           
+            <textarea data-aos="fade-down" data-aos-delay={400}
               id="message"
               name="message"
               value={formData.message}
               onChange={handleChange}
               placeholder="Write your message..."
               rows={5}
-              className="w-full px-4 py-2 mt-3 rounded-lg bg-transparent border border-white-white text-white outline-none"
+              className="w-full px-4 py-2 mt-3 rounded-lg placeholder-white bg-transparent border border-green-pramery text-white outline-none"
             />
-          </motion.div>
+          </div>
 
-          <motion.button
+          <button data-aos="fade-down" data-aos-delay={200}
             type="submit"
-            className="py-3 text-center w-full text-white-white bg-green-pramery font-Inter font-medium text-[16px] max-w-[208px] m-auto rounded-[24px] btn"
-            whileHover={{ scale: 1.05 }}
+            className="py-3 text-center w-full  text-white-white cursor-pointer bg-green-pramery font-Inter font-medium text-[16px]  m-auto rounded-[24px] "
             transition={{ type: "spring", stiffness: 120 }}
-            variants={fadeInUp}
           >
             Send message 
-          </motion.button>
-        </motion.form>
-      </motion.div>
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
