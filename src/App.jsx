@@ -5,7 +5,7 @@ import Home from './pages/Home';
 import Aboute from './pages/Aboute';
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
-import { Vortex } from './bganimation/animation';
+import Vortex  from './bganimation/Vortex';
 
 function App() {
 

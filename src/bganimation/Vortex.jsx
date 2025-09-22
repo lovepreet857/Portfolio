@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { createNoise3D } from "simplex-noise";
 import { motion } from "motion/react";
 
-export const Vortex = (props) => {
+ const Vortex = (props) => {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
   const animationFrameId = useRef();
@@ -247,3 +247,5 @@ export const Vortex = (props) => {
     </div>
   );
 };
+
+export default Vortex
