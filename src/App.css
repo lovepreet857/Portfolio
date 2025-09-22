@@ -129,3 +129,13 @@
 .fullview .row__item-inner {
   border-radius: 0px;
 }
+
+.scroll-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-hidden {
+  -ms-overflow-style: none;  /* IE aur Edge ke liye */
+  scrollbar-width: none;  
+  overflow: auto;   /* Firefox ke liye */
+}
