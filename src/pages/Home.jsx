@@ -3,7 +3,7 @@ import Maine from "../components/home/mainpage"
 const Home = () => {
   return (
    <>
-   <Maine/>
+   <Maine />
    </>
   )
 }
