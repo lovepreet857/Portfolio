@@ -43,10 +43,10 @@ AOS.init({
     <div className="container  py-[100px]     grid lg:grid-cols-2 gap-10">
       {/* Left Section */}
       <div
-        className="w-[500px]"
+        className="max-w-[500px] w-full"
       >
         <h1 data-aos="fade-right" data-aos-delay="200"
-          className="text-[24px] md:text-[48px] w- font-bold font-Inter leading-[100%] pb-5 text-white-white"
+          className="text-[24px] md:text-[48px]  font-bold font-Inter leading-[100%] pb-5 text-white-white"
         >
           Let’s Work <span className="text-green-pramery">Together!</span>
         </h1>
@@ -74,7 +74,7 @@ AOS.init({
                 target="_blank"
                 className="p-2 border-2 border-green-500 rounded-full"
               >
-                <img className="max-w-6" src={social.src} alt="social-icon" />
+                <img className="max-w-6 w-full" src={social.src} alt="social-icon" />
               </a>
             ))}
           </div>
