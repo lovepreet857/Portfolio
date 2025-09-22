@@ -40,7 +40,7 @@ AOS.init({
         offset: 0,
       });
   return (
-    <div className="container">
+    <div className="container overflow-auto h-[600px] scroll-hidden">
       <div className="flex flex-col items-center gap-5 pt-5 md:pt-10">
         <h1 data-aos="fade-down" data-aos-delay="400" className="font-Inter font-bold text-[28px] md:text-[48px] leading-[100%] text-white-white">
           Proj<span className="text-green-pramery">ects</span>
@@ -56,7 +56,7 @@ AOS.init({
           <div data-aos={index % 3 === 0 ? "fade-right" : index % 3 === 1 ? "fade-up" : "fade-left"}
                     data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1400" : "1000"}
             key={index}
-            className="max-w-[419px] mx-auto border-2 border-white-white transition duration-700 hover:shadow-2xl shadow-white-white w-full h-96 bg-black-secondery rounded-[24px] overflow-hidden"
+            className="max-w-[419px] mx-auto border-2 border-white-white transition duration-700 w-full h-96 bg-black-secondery rounded-[24px] overflow-hidden"
           >
             <a href={item.projectlink} target="_blank" >
               <img data-aos="zoom-in" src={item.projectimg} alt="" className="h-[215px]"  />

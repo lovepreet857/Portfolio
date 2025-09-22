@@ -5,13 +5,20 @@ import Home from './pages/Home';
 import Aboute from './pages/Aboute';
 import Contact from './pages/Contact';
 import Projects from './pages/Projects';
-import GridMotion from './pages/Animation';
+import { Vortex } from './bganimation/animation';
 
 function App() {
 
   return (
     
+     <Vortex
+        backgroundColor="black"
+        rangeY={800}
+        particleCount={100}
+        baseHue={120}
+        className="h-screen ">
     <BrowserRouter>
+       
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
@@ -20,6 +27,7 @@ function App() {
         <Route path='/contact' element={<Contact />} />
       </Routes>
     </BrowserRouter>
+      </Vortex>
   );
 }
 

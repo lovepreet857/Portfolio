@@ -40,7 +40,7 @@ AOS.init({
   };
 
   return (
-    <div className="container  py-[100px]     grid lg:grid-cols-2 gap-10">
+    <div className="container  pt-[100px]     grid lg:grid-cols-2 gap-10">
       {/* Left Section */}
       <div
         className="max-w-[500px] w-full"

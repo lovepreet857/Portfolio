@@ -36,7 +36,7 @@ const Header = () => {
     <>
       <div className="w-full sticky  top-0 left-0 z-50 shadow-2xl ">
         <div className="container ">
-          <nav className="flex justify-between text-white bg-black-secondery py-5 items-center relative">
+          <nav className="flex justify-between text-white py-5 items-center relative">
             {/* Logo */}
             <motion.div
               initial={{ opacity: 0, y: -20 }}

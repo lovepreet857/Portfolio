@@ -17,7 +17,7 @@
       @apply max-w-[1360px] w-full px-5 m-auto;
     }
     body {
-      @apply bg-black-secondery ;
+      @apply bg-black ;
     }
    
     
