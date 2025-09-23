@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import Skilldata from "../json/aboute.json";
 import Lovepreet from "../../public/img/hhh.jpg"
-import left from "../../public/svg/arrow-left-solid.svg"
+import left from "../../public/svg/move-left.svg"
+import right from "../../public/svg/move-left_black.svg"
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -105,18 +106,25 @@ const Aboute = () => {
 
             {/* Tabs */}
         <div className="w-full max-w-[500px] gap-5 sm:flex-row flex-col flex md:mt-5">
-  <button
-    onClick={() => setActiveTab("about")}
-    className={`max-w-[209px] mx-auto sm:mx-0 cursor-pointer rounded-[30px] hover:bg-green-pramery outline-none py-3 transition-all duration-700 shadow-[0_0_10px_#7cf03d] border-[#76e43a] w-full font-medium border-2 font-Inter ${
-      activeTab === "about" ? "hidden" : "bg-transparent text-green-pramery"
-    }`}
-  >
-    <img
-      className="w-8 sm:w-12 mx-auto"
-      src={left}
-      alt=""
-    />
-  </button>
+<button
+  onClick={() => setActiveTab("about")}
+  className={`group max-w-[209px] mx-auto sm:mx-0 cursor-pointer rounded-[30px] hover:bg-green-pramery outline-none py-3 transition-all duration-700 shadow-[0_0_10px_#7cf03d] border-[#76e43a] w-full font-medium border-2 font-Inter
+    ${activeTab === "about" ? "hidden" : ""}
+  `}
+>
+  <img
+    className="w-8 sm:w-12 mx-auto group-hover:hidden"
+    src={left}
+    alt=""
+  />
+  <img
+    className="w-8 sm:w-12 mx-auto hidden group-hover:block"
+    src={right}
+    alt=""
+  />
+</button>
+
+
 
   <a
     href="img/lovely_cv.pdf"
