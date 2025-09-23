@@ -163,7 +163,7 @@ const Aboute = () => {
             <>
               <div className="   flex flex-col ">
                 <img data-aos="fade-left" data-aos-delay="200"
-                  className=" hidden  lg:block  border-4 border-amber-50 transition-all hover:shadow-2xl shadow-white rounded-[24px] object-cover"
+                  className=" hidden cursor-pointer lg:block  border-4 border-amber-50 transition-all hover:shadow-2xl shadow-white rounded-[24px] object-cover"
                   src={Lovepreet}
                   alt="Profile"
                 />
