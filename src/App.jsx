@@ -10,7 +10,6 @@ import Vortex  from './bganimation/Vortex';
 function App() {
 
   return (
-    
      <Vortex
         backgroundColor="black"
         rangeY={800}

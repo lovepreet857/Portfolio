@@ -72,7 +72,7 @@ AOS.init({
                   {item.projecttext}
                 </p>
                 <button
-                  className="max-w-full mt-6 w-full bg-transparent py-[10px] text-white-white hover:bg-green-pramery transition duration-700 shadow-[0_0_10px_#7cf03d] rounded-[30px] border border-[#76e43a]"
+                  className=" cursor-pointer max-w-full mt-6 w-full bg-transparent py-[10px] text-white-white hover:bg-green-pramery transition duration-700 shadow-[0_0_10px_#7cf03d] rounded-[30px] border border-[#76e43a]"
                 >
                   {item.button}
                 </button>

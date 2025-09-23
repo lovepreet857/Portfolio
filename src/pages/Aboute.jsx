@@ -107,7 +107,7 @@ const Aboute = () => {
         <div className="w-full max-w-[500px] gap-5 sm:flex-row flex-col flex md:mt-5">
   <button
     onClick={() => setActiveTab("about")}
-    className={`rounded-[30px] hover:bg-green-pramery outline-none py-3 transition-all duration-700 shadow-[0_0_10px_#7cf03d] border-[#76e43a] w-full font-medium border-2 font-Inter ${
+    className={`max-w-[209px] mx-auto sm:mx-0 cursor-pointer rounded-[30px] hover:bg-green-pramery outline-none py-3 transition-all duration-700 shadow-[0_0_10px_#7cf03d] border-[#76e43a] w-full font-medium border-2 font-Inter ${
       activeTab === "about" ? "hidden" : "bg-transparent text-green-pramery"
     }`}
   >
@@ -125,7 +125,7 @@ const Aboute = () => {
   >
     <button data-aos="fade-up" data-aos-delay="800"
       onClick={() => setChange(!Change)}
-      className={`text-lg sm:text-[24px] outline-none hover:bg-green-pramery hover:text-black shadow-[0_0_10px_#7cf03d] border-[#76e43a] rounded-[30px] py-3 transition-all duration-700 w-full font-medium border-2 font-Inter ${
+      className={`cursor-pointer text-lg sm:text-[24px] outline-none hover:bg-green-pramery hover:text-black shadow-[0_0_10px_#7cf03d] border-[#76e43a] rounded-[30px] py-3 transition-all duration-700 w-full font-medium border-2 font-Inter ${
         activeTab === "about"
           ? "block"
           : "hidden"
@@ -140,8 +140,8 @@ const Aboute = () => {
       setActiveTab("skill");
       setChange(false); // <-- Reset CV button styles when Skill is clicked
     }}
-    className={`text-black-secondery text-lg sm:text-[24px] outline-none shadow-[0_0_10px_#7cf03d] hover:bg-green-pramery hover:text-black border-[#76e43a] rounded-[30px] py-3 transition-all duration-700 w-full font-medium border-2 font-Inter ${
-      activeTab === "skill" ? "bg-green-pramery text-black" : "bg-transparent text-green-pramery"
+    className={`cursor-pointer text-black-secondery text-lg sm:text-[24px] outline-none shadow-[0_0_10px_#7cf03d] hover:bg-green-pramery hover:text-black border-[#76e43a] rounded-[30px] py-3 transition-all duration-700 w-full font-medium border-2 font-Inter ${
+      activeTab === "skill" ? "hidden" : "bg-transparent text-green-pramery"
     }`}
   >
     Skill

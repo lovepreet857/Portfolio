@@ -72,7 +72,7 @@ AOS.init({
 
       {/* Right Image Section */}
       <img data-aos="fade-left" data-aos-delay="200"
-        className="w-48 h-48 lg:mr-[100px] mr-0 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px] border-4 border-amber-50 transition-all hover:shadow-2xl shadow-white rounded-full object-cover"
+        className="w-48 cursor-pointer h-48 lg:mr-[100px] mr-0 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[400px] lg:h-[400px] border-4 border-amber-50 transition-all hover:shadow-2xl shadow-white rounded-full object-cover"
         src="/img/lovepreet.jpg"
         alt="Profile"
       />
