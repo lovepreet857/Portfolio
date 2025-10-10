@@ -40,7 +40,7 @@ AOS.init({
         offset: 0,
       });
   return (
-    <div className="container overflow-auto h-[600px] scroll-hidden">
+    <div className="container sm:pt-20 sm:pb-10  pt-[60px] pb-[60px] sm:p-0">
       <div className="flex flex-col items-center gap-5 pt-5 md:pt-10">
         <h1 data-aos="fade-down" data-aos-delay="400" className="font-Inter font-bold text-[28px] md:text-[48px] leading-[100%] text-white-white">
           Proj<span className="text-green-pramery">ects</span>
@@ -51,7 +51,7 @@ AOS.init({
       </div>
 
       {/* Grid */}
-      <div className="hidden lg:grid grid-cols-2 xl:grid-cols-3 gap-10  md:mt-20 md:mb-5">
+      <div className="hidden lg:grid grid-cols-2 xl:grid-cols-3 gap-10  md:mt-10 md:mb-5">
         {projectdata.map((item, index) => (
           <div data-aos={index % 3 === 0 ? "fade-right" : index % 3 === 1 ? "fade-up" : "fade-left"}
                     data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1400" : "1000"}

@@ -61,7 +61,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="container pt-10 md:pt-[100px] grid lg:grid-cols-2 gap-10">
+    <div className="container sm:pt-30 sm:pb-0  pt-[100px] pb-[100px] grid lg:grid-cols-2 gap-10 ">
       {/* Left Section */}
       <div className="max-w-[500px] w-full">
         <h1
@@ -82,7 +82,6 @@ const Contact = () => {
       </div>
 
       {/* Right Form Section */}
-      <div>
         <form
           onSubmit={handleSubmit}
           className="bg-opacity-60 rounded-[24px] flex flex-col gap-6 backdrop-blur-md p-6"
@@ -145,7 +144,6 @@ const Contact = () => {
             Send message
           </button>
         </form>
-      </div>
     </div>
   );
 };

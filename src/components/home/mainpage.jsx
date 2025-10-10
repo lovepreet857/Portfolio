@@ -37,7 +37,7 @@ AOS.init({
            <span>{text}</span>
           <Cursor cursorBlinking={true} cursorStyle="|" cursorColor="#7cf03d" />
         </h2>
-
+ 
         <p data-aos="fade-right" data-aos-delay="600"
           className="text-white text-sm sm:text-base md:text-lg my-5"
         >

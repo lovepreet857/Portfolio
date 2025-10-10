@@ -1,15 +1,21 @@
-import React, { useState, useLayoutEffect, useRef, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useTypewriter } from "react-simple-typewriter";
 import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Header = () => {
   const location = useLocation();
-  const navigate = useNavigate(); // navigation hook
   const [isOpen, setIsOpen] = useState(false);
-  const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
   const navRefs = useRef({});
+  const [text] = useTypewriter({
+    words: ["LOVEPREET SINGH"],
+    loop: true,
+    typeSpeed: 70,
+    deleteSpeed: 60,
+    delaySpeed: 2000,
+  });
 
   const navItems = [
     { name: "Home", path: "/" },
@@ -17,141 +23,104 @@ const Header = () => {
     { name: "Projects", path: "/projects" },
     { name: "Contact", path: "/contact" },
   ];
-   const [text] = useTypewriter({
-      words: ["LOVEPREET SINGH"],
-      loop: true,
-      typeSpeed: 70,
-      deleteSpeed: 60,
-      delaySpeed: 2000,
-    });
-  
-    useEffect(() => {
-      Aos.init({ duration: 1000, once: false, offset: 0 });
-      const handleScroll = () => Aos.refresh();
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+
+  // Background opacity and blur effect on scroll
+  const [isBlurred, setIsBlurred] = useState(false);
+
+  useEffect(() => {
+    Aos.init({ duration: 1000, once: false });
+
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsBlurred(scrollTop > 10); // blur only after scrolling a bit
+      Aos.refresh();
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <>
-      <div className="w-full sticky  top-0 left-0 z-50 shadow-2xl ">
-        <div className="container ">
-          <nav className="flex justify-between text-white py-5 items-center relative">
-            {/* Logo */}
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="flex items-center gap-3"
-            >
-      
-            
-              <motion.h1
-                whileHover={{ scale: 1.1, textShadow: "0px 0px 8px #22c55e" }}
-                transition={{ duration: 0.9 }}
-                className=" text-lg sm:text-[22px] h-[40px] md:text-[30px] pt-[4px] font-bold bg-gradient-to-r from-white to-green-500 bg-clip-text text-transparent"
+    <header
+      className={`
+        fixed top-0 left-0 
+        w-full z-50 
+        transition-all duration-300
+        ${isBlurred ? "backdrop-blur-md" : "backdrop-blur-0"}
+      `}
+      style={{
+      }}
+    >
+      {/* Content wrapper centered inside full-width bg */}
+      <div className="max-w-7xl mx-auto flex justify-between items-center py-4 md:py-5 px-4">
+        {/* Logo / Name */}
+        <motion.h1
+          whileHover={{ scale: 1.1, textShadow: "0px 0px 8px #22c55e" }}
+          className="text-lg sm:text-[22px] md:text-[30px] font-bold bg-gradient-to-r from-white to-green-500 bg-clip-text text-transparent"
+        >
+          {text}
+        </motion.h1>
+
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex gap-10">
+          {navItems.map((item) => (
+            <Link key={item.path} to={item.path}>
+              <p
+                ref={(el) => (navRefs.current[item.path] = el)}
+                className={`cursor-pointer hover:text-green-500 transition ${
+                  location.pathname === item.path
+                    ? "text-green-500"
+                    : "text-white"
+                }`}
               >
-                <i>{text}</i>
-              </motion.h1>
-            </motion.div>
-
-            {/* Mobile Hamburger */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden relative w-6 h-6 flex items-center justify-center group "
-            >
-              <span
-                className={`absolute h-0.5 w-6 bg-white transition-all duration-300 ease-in-out ${
-                  isOpen ? "rotate-45 translate-y-0" : "-translate-y-2"
-                }`}
-              ></span>
-              <span
-                className={`absolute h-0.5 w-6 bg-white transition-all duration-300 ease-in-out ${
-                  isOpen ? "opacity-0" : "opacity-100"
-                }`}
-              ></span>
-              <span
-                className={`absolute h-0.5 w-6 bg-white transition-all duration-300 ease-in-out ${
-                  isOpen ? "-rotate-45 translate-y-0" : "translate-y-2"
-                }`}
-              ></span>
-            </button>
-
-          
-            <motion.div
-              initial={{ x: "100%", opacity: 0 }}
-              animate={{
-                x: isOpen ? 0 : "100%",
-                opacity: isOpen ? 1 : 0,
-              }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-              className="fixed top-[80px] sm:top-[90px] right-0 h-[calc(100%-84px)] sm:h-[calc(100%-90px)] 
-             w-[65%] sm:w-[50%] bg-gradient-to-b from-black via-[#111] to-black/95 
-             sm:border-l border-green-500 shadow-2xl z-50 flex flex-col py-10 px-6 gap-6 md:hidden"
-            >
-              {/* Close Button */}
-
-              {navItems.map((item, i) => (
-                <motion.div
-                  key={item.path}
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: i * 0.1 }}
-                >
-                  <Link to={item.path} onClick={() => setIsOpen(false)}>
-                    <p
-                      className={`hover:text-green-500 text-xl font-medium transition relative ${
-                        location.pathname === item.path
-                          ? "text-green-500 underline underline-offset-4"
-                          : ""
-                      }`}
-                    >
-                      {item.name}
-                    </p>
-                  </Link>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            {/* Desktop Menu */}
-            <div className="hidden md:flex gap-[35px] text-[20px] font-medium relative">
-              {navItems.map((item, i) => (
-                <motion.div
-                  key={item.path}
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                >
-                  <Link to={item.path}>
-                    <p
-                      ref={(el) => (navRefs.current[item.path] = el)}
-                      className={`hover:text-green-500 transition relative cursor-pointer ${
-                        location.pathname === item.path ? "text-green-500" : ""
-                      }`}
-                    >
-                      {item.name}
-                    </p>
-                  </Link>
-                </motion.div>
-              ))}
-
-              {/* Active underline */}
-              <motion.div
-                className="absolute bottom-[-6px] h-[3px] bg-green-500 rounded-full"
-                initial={false}
-                animate={{
-                  left: indicatorStyle.left + "px",
-                  width: indicatorStyle.width + "px",
-                }}
-                transition={{ type: "spring", stiffness: 500, damping: 30 }}
-              />
-            </div>
-          </nav>
+                {item.name}
+              </p>
+            </Link>
+          ))}
         </div>
-      </div>
 
-      {/* Spacer for fixed navbar */}
-    </>
+        {/* Mobile Hamburger */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden relative w-6 h-6 flex flex-col justify-between items-center"
+        >
+          <span
+            className={`block h-0.5 w-6 bg-white transition-transform duration-300 ${
+              isOpen ? "rotate-45 translate-y-3" : ""
+            }`}
+          />
+          <span
+            className={`block h-0.5 w-6 bg-white transition-opacity duration-300 ${
+              isOpen ? "opacity-0" : "opacity-100"
+            }`}
+          />
+          <span
+            className={`block h-0.5 w-6 bg-white transition-transform duration-300 ${
+              isOpen ? "-rotate-45 -translate-y-2" : ""
+            }`}
+          />
+        </button>
+
+        {/* Mobile Menu */}
+        {isOpen && (
+          <motion.div
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ duration: 0.4 }}
+            className="md:hidden fixed top-0 right-0 h-full w-2/3 bg-black/90 backdrop-blur-md flex flex-col py-10 px-6 gap-6 z-50"
+          >
+            {navItems.map((item, i) => (
+              <Link key={i} to={item.path} onClick={() => setIsOpen(false)}>
+                <p className="text-white text-xl hover:text-green-500">
+                  {item.name}
+                </p>
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </div>
+    </header>
   );
 };
 

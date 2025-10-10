@@ -64,8 +64,8 @@ const Aboute = () => {
   const [Change, setChange] = useState(false);
 
   return (
-    <div className="md:my-14">
-      <div className="container ">
+    <div className=" my-[60px] sm:pt-10 sm:pb-0  pt-[50px] pb-[50px] sm:my-[90px]">
+      <div className="container  ">
         <div
           className="flex flex-col lg:flex-row  justify-between  w-full items-center "
           
