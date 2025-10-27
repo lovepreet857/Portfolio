@@ -72,10 +72,10 @@ const Aboute = () => {
         >
           {/* Left Section */}
           <div
-            className="flex flex-col max-w-[500px] gap-5 md:gap-10 lg:w-1/3 "
+            className="flex flex-col max-w-[500px] gap-5 md:gap-10 lg:w-1/3"
           >
             <img data-aos="fade-right" data-aos-delay="200"
-              className=" lg:hidden border-4 border-amber-50 transition-all hover:shadow-2xl shadow-white rounded-[24px] object-cover"
+              className=" lg:hidden border-4  border-amber-50 transition-all hover:shadow-2xl shadow-white rounded-[24px] object-cover"
               src="/img/hhh.jpg"
               alt="Profile"
             />
